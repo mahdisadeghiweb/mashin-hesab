@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+</head>
+
+<body>
+
+    <div id="time"></div>
+    <script>
+        function test(a) {
+            console.log(a)
+            console.log(new Date());
+            document.getElementById('time').innerHTML = "10:02:20";
+        }
+        let timerId = setTimeout(test, 2000, 'salam');
+        clearTimeout(timerId);
+
+        // let timerId2 = setInterval(test, 2000, 'salam');
+        // clearInterval(timerId2);
+
+        function test2(a) {
+            console.log(a)
+            console.log(new Date());
+
+        }
+        // let timerId3 = setInterval(test2, 2000, "salam");
+        // setTimeout(function () {
+        //     clearInterval(timerId3);
+        // }, 6500);
+
+
+        // let timertest = 0;
+
+        // function Ftest(a) {
+        //     console.log(a);
+        //     console.log(new Date());
+        //     timertest++;
+        //     if (timertest === 3) {
+        //         clearInterval(mytimerID);
+        //     }
+        // }
+        // let mytimerID = setInterval(Ftest, 2000, "salam");
+
+        // function Ftest(a) {
+        //     console.log(a);
+        //     console.log(new Date());
+        // };
+        // setTimeout(function run() {
+        //     console.log(new Date());
+        //     setTimeout(run, 1000);
+        // });
+
+        var cuont = 0;
+        setTimeout(function rrun() {
+            console.log('timer');
+            cuont++;
+
+            if (cuont < 10) {
+                setTimeout(rrun, 1000);
+            }
+        });
+
+
+        // setTimeout(function(){alert(11)});
+        // alert("amj")
+
+        
+    </script>
+</body>
+
+</html>

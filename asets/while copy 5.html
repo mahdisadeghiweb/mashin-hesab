@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+</head>
+
+<body>
+
+    <script>
+        let fruits = ["Apple", "Banan", "Apple", "Lemon"];
+        // fruits[4]= "mahdi";
+        // fruits[fruits.length]="mahdi"
+        fruits.push("x1", "x2")
+        console.log(typeof fruits);
+        console.log(Array.isArray(fruits));
+        console.log(fruits instanceof Array);
+        console.log(fruits instanceof String);
+
+        for (let i = 0; i < fruits.length; i++) {
+            console.log(fruits[i]);
+        }
+
+        fruits.forEach(function (value, index) {
+            console.log(value);
+            console.log(index);
+        });
+
+        function logmyArray(value, index) {
+            console.log(value);
+            console.log(index);
+        }
+        fruits.forEach(logmyArray);
+
+        console.log(fruits.toString());
+        console.log(fruits.join("||"));
+
+        var testArray = fruits.pop();
+        console.log(testArray);
+        let fruits2 = ["naser", "ali"]
+        let total = fruits.concat(fruits2);
+        console.log(total);
+
+        let numbers = [2, 55, 3, 100, 30, 42];
+        let list2 = numbers.filter(function (value) {
+            return value > 40;
+        });
+        console.log(list2);
+
+        let list3 = numbers.map(function (value) {
+            return value * 2;
+        });
+
+        console.log(list3);
+
+        let check = numbers.every(function (value) {
+            return value > 1;
+        });
+
+        console.log(check);
+        let check2 = numbers.some(function (value) {
+            return value > 40;
+        });
+        console.log(check2);
+
+        console.log(numbers.indexOf(100));
+
+        console.log(fruits.sort());
+        console.log(numbers.sort(function(a,b){
+            return (b-a)
+        }));
+
+        console.log(Math.min(...numbers));
+        console.log(Math.max(...numbers));
+
+    </script>
+</body>
+
+</html>

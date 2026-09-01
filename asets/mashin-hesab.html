@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+    <style>
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            width: 100%;
+            min-height: 10px;
+        }
+
+        .container {
+            width: 370px;
+            height: 410px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            border-radius: 7px;
+            box-shadow: 1px 5px 10px 1px #959595;
+        }
+
+        .container form {
+            width: 100%;
+            height: 100%;
+            border-radius: 7px;
+        }
+
+        .display {
+            width: 100%;
+            height: 100px;
+            padding: 0 10px;
+            margin-bottom: 5px;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            border-radius: 7px 7px 0 0;
+        }
+
+        .display input {
+            height: 50%;
+            width: 100%;
+            outline: 0;
+            border: 0;
+            background-color: transparent;
+            text-align: right;
+            font-size: 30px;
+
+        }
+
+        .display input::placeholder {
+            font-size: 30px;
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+            margin-left: 5px;
+        }
+
+        .title input {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            border: 0;
+            color: #fff;
+            font-size: 25px;
+            background-color: red;
+            padding: 1.5px;
+            margin-right: 5px;
+
+        }
+
+        .title h2 {
+            font-size: 19px;
+            color: rgb(69, 68, 68);
+        }
+
+        .row input {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            border: 0;
+            font-size: 20px;
+            margin: 5px;
+            background-color: #e9e8e8;
+            cursor: pointer;
+        }
+
+        .row .concat {
+            background-color: rgb(122, 250, 122);
+        }
+    </style>
+</head>
+<div class="container">
+    <form action="" name="form" id="myform">
+        <div class="display">
+            <input type="text" placeholder="0" name="displayResult" id="displayResult">
+        </div>
+        <div class="title">
+            <input type="button" onclick="reset()" value="C" class="red">
+            <h2>javaScript Calculator</h2>
+        </div>
+
+        <div class="row">
+            <input type="button" name="b7" value="7" onclick="addToCalculator(b7.value)">
+            <input type="button" name="b8" value="8" onclick="addToCalculator(b8.value)">
+            <input type="button" name="b9" value="9" onclick="addToCalculator(b9.value)">
+            <input type="button" name="addb" value="+" onclick="addToCalculator(addb.value)">
+            <input type="button" name="ceil" value="ce" onclick="mathCalculator('ceil')">
+            <input type="button" name="resetvan" value="&#9003;" onclick="backSpace(resetvan.value)">
+
+        </div>
+        <div class="row">
+            <input type="button" name="b4" value="4" onclick="addToCalculator(b4.value)">
+            <input type="button" name="b5" value="5" onclick="addToCalculator(b5.value)">
+            <input type="button" name="b6" value="6" onclick="addToCalculator(b6.value)">
+            <input type="button" name="subb" value="-" onclick="addToCalculator(subb.value)">
+            <input type="button" name="abs" value="|x|" onclick="mathCalculator('abs')">
+            <input type="button" name="floor" value="fl" onclick="mathCalculator('floor')">
+
+        </div>
+        <div class="row">
+            <input type="button" name="b1" value="1" onclick="addToCalculator(b1.value)">
+            <input type="button" name="b2" value="2" onclick="addToCalculator(b2.value)">
+            <input type="button" name="b3" value="3" onclick="addToCalculator(b3.value)">
+            <input type="button" name="mulb" value="*" onclick="addToCalculator(mulb.value)">
+            <input type="button" name="sqrt" value="&#8730;" onclick="mathCalculator('sqrt')">
+            <input type="button" name="abs" value="ab" onclick="mathCalculator('abs')">
+
+        </div>
+        <div class="row">
+            <input type="button" name="b0" value="0" onclick="addToCalculator(b0.value)">
+            <input type="button" name="potb" value="." onclick="addToCalculator(potb.value)">
+            <input type="button" name="divb" value="/" onclick="addToCalculator(divb.value)">
+            <input class="concat" type="button" name="green" value="=" onclick="finilize()">
+            <input type="button" name="round" value="r" onclick="mathCalculator('round')">
+            <input type="button" name="power" value="^" onclick="mathCalculator('pow')">
+
+
+        </div>
+    </form>
+</div>
+
+<body>
+
+
+
+    <script>
+        let powFlag = false;
+        function addToCalculator(value) {
+            document.getElementById('displayResult').value += value;
+            // console.log(document.getElementById('displayResult').value );
+
+            if (powFlag) {
+                let numbers = document.getElementById('displayResult').value.split('^');
+                console.log(numbers);
+
+                document.getElementById('displayResult').value = Math.pow(numbers[0], numbers[1]);
+                powFlag = false;
+            }
+        }
+        function finilize() {
+            document.getElementById('displayResult').value = eval(document.getElementById('displayResult').value)
+        }
+        function reset() {
+            document.getElementById('displayResult').value = '';
+        }
+
+        function backSpace() {
+            document.getElementById('displayResult').value = document.getElementById('displayResult').value.slice(0, -1);
+
+        }
+
+        function mathCalculator(mathFunc) {
+            if (mathFunc == 'pow') {
+                powFlag = true;
+                document.getElementById('displayResult').value += '^';
+            } else {
+                let val = document.getElementById('displayResult').value;
+                document.getElementById('displayResult').value = Math[mathFunc](val);
+            }
+
+        }
+    </script>
+</body>
+
+</html>

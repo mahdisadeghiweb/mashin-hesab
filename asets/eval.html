@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+</head>
+
+<body>
+    <div id="demo"></div>
+
+    <script>
+
+
+        // eval('var test = 1;')
+        // eval('alert(test)')
+
+        let test = prompt('your password?');
+        switch (test) {
+            case "mahdi.naser":
+                alert('hello mahdi')
+                break;
+
+            case "admin":
+                
+                break;
+        }
+        if (test === "admin") {
+            // alert("خوش امدید...");
+            let next = prompt('لطفا رمز رو وارد کنید');
+            switch (next) {
+                case "password":
+                    alert("خوش")
+                    break;
+                default:
+                    alert("اشتباه")
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

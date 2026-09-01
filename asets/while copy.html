@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+</head>
+
+<body>
+    <div id="demo"></div>
+
+
+    <script>
+        var key = "className";
+        var student = {
+            name: "mahdi",
+            family: "sadeghi",
+            age: "18",
+            walk: function () {
+                var i = 100;
+                while (i) {
+                    document.getElementById('demo').innerHTML += '--';
+                    i--;
+                }
+
+            },
+
+            'class name': "c1",
+            [key]: "c22"
+
+        };
+
+        student.walk();
+
+        console.log(student.name);
+        console.log(student['name']);
+
+        console.log(student['class name'])
+
+        // console.log(student.className)
+        console.log(student[key])
+
+
+        // if (student.name !== undefined){
+        //     alert('hello');
+        // }
+
+        // if ("name" in student) {
+        //     alert('1222');
+        // }
+        for (propertyName in student) {
+            // console.log(propertyName)
+            if (typeof student[propertyName] == "function") {
+                student[propertyName]();
+
+            } else {
+                console.log(student[propertyName])
+            }
+
+            var list = {
+                43:"number 43",
+                "55": "salsm",
+                1 : "mahdi"
+            }
+
+        }
+        for(pName in list){
+            console.log(pName);
+        }
+    </script>
+</body>
+
+</html>

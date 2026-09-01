@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="myinput" onchange="validate(event)">
+        <label for="myinput">name</label>
+    </form>
+    <script>
+        var mytext = "mahdi sadeghi'unik'";
+        var mytext = 'mahdi sadeghi"unik"';
+        var mytext = 'mahdi'
+
+        console.log(mytext.length);
+
+        function validate(event) {
+            if (event.target.value.length < 3) {
+                alert('خطا نام کاربری شما باید بیشتر از 3 کاراکتر باشد!');
+            } else {
+                alert("سلام  " + event.target.value)
+            }
+
+        }
+
+        var text = `jsjsj
+        hhhhhhhhhh
+        fffffffffff
+        dssssssijis`
+
+        var text2 = "salam dost man";
+        console.log(text2[0]);
+        console.log(text)
+
+        var text3 = "muhduhddddddd\n hduehbrddddddddd";
+        console.log(text3);
+
+        var text4 = "muhduhddddddd \r\n hduehbrddddddddd";
+        console.log(text4);
+
+        var text5 = "muhduhddddddd\t hduehbr \"ddddddddd\" \'ddddddddd\' \\ddddddddd\\";
+        console.log(text5);
+
+        var text6 = "\u{1F60D}";
+        console.log(text6);
+
+
+        let x = "MAHDI sadeghi";
+        console.log(x.toUpperCase());
+        console.log(x.toLowerCase());
+        console.log(x.indexOf("g"));
+        console.log(x.includes("M"));
+        console.log(x.slice(0, 5));
+        console.log(x);
+
+        x = 's' + x.slice(1, 20);
+        console.log(x);
+
+        console.log(x.substr(-3, 3));
+
+        console.log(x.replace("sadeghi", "jafary"));
+        let test = "            mah di  ";
+        console.log(test.trim())
+        let input = "3,4,5,6,2,4,mahdi";
+        // let  array = input.split(",");
+        console.log(input.split(","));
+
+        let test1 = "mahdisadeghi";
+        let test2 = "mahdisadeghi";
+        console.log(test1.localeCompare(test2));
+
+
+    </script>
+</body>
+
+</html>

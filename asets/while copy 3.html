@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../asets/css/style.css">
+</head>
+
+<body onload="load()">
+
+    <input id="mahdi" type="text" name="test" onkeydown="KeyDown(event)" onchange="inputChager(event)">
+
+    <label for="mahdi">نام خود را وارد کنید</label>
+
+    <button onclick="Clicked(event)">کلیک کنید</button>
+    <hr>
+    <div onmouseout="mouseOut(event)" onmouseover="mouseOver(event)"
+        style="width: 500px; height: 100px; background-color: rgb(222, 171, 246);">
+    </div>
+    <script>
+        function inputChager(event) {
+            // console.log(event.target.value);
+            alert('سلام' + event.target.value);
+            console.log('change...');
+        }
+
+        function Clicked(event) {
+            console.log(event)
+            // alert('salam');
+            if (event.ctrlKey) {
+                alert('hello');
+            } else {
+                alert('salam');
+            }
+        }
+        function mouseOver(event) {
+            console.log(event),
+                event.target.innerHTML = 'سلام رفیق';
+        }
+        function mouseOut(event) {
+            console.log(event),
+                event.target.innerHTML = 'چرا رفتی پس؟؟؟';
+        }
+
+        var persian = {
+            83: 'س',
+            75: 'ن'
+        }
+        function KeyDown(event) {
+            console.log(event)
+
+            event.target.value = persian[event.keyCode];
+        }
+
+        function load(){
+            alert('سلام خوش امدید')
+        }
+    </script>
+</body>
+
+</html>
